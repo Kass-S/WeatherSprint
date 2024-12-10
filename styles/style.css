@@ -8,6 +8,7 @@
 body{
     background-color: #8248FF;
     background-image: linear-gradient(to bottom left, #87CEEB , #8248FF);
+    background-attachment: fixed;
     background-repeat: no-repeat;
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
     color: white;
