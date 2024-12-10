@@ -29,6 +29,15 @@ main{
      grid-column: span 2;
 }
 
+.space-between{
+    display: flex;
+    justify-content: space-between;
+}
+
+.justify-center{
+    display: flex;
+    justify-content: center;
+}
 
 
 daily{
@@ -72,9 +81,4 @@ section{
 .weekly-forcast-card{
     margin: 20px;
     font-size: 20px;
-}
-
-.space-between{
-    display: flex;
-    justify-content: space-between;
 }
