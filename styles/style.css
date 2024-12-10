@@ -52,9 +52,23 @@ section{
 }
 
 .search-city-card{
-    margin: 20px;
     font-size: 20px;
 }
+
+.search-city-search{
+    border-radius: 10px 10px 0px 0px;
+    padding: 1em;
+    background-color: #D9D9D9;
+}
+.search-city-search-bar{
+    font-size: 20px;
+    background-color: #D9D9D9;
+    border: none;
+}
+.search-city-search-icon{
+    margin: .3em .3em 0 0;
+}
+
 
 .weekly-forcast-card{
     margin: 20px;
