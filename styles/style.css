@@ -39,6 +39,10 @@ main{
     justify-content: center;
 }
 
+.margin-bottom{
+    margin-bottom: 2em;
+}
+
 
 daily{
     background-color: rgba(0, 0, 0, 0.400);
