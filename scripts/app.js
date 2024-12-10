@@ -18,28 +18,21 @@ testBtn.addEventListener('click', function(){
 
 let city = 'Lodi,US'
 
-function apiCallCurrent() {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}`)
-    .then((response) => {
-        return response.json()
-    })
-    .then((dataCurrent) => {
-        console.log(dataCurrent);
-        dailyForcastWeatherText.innerText = dataCurrent.weather[0].description;
-    })
+async function apiCallCurrent() {
+    const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}`);
+    const dataCurrent = await promise.json();
+    console.log(dataCurrent);
+    dailyForcastWeatherText.innerText = dataCurrent.weather[0].description;
 }
 
-function apiCallForcast() {
-    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKEY}`)
-    .then((response) => {
-        return response.json()
-    })
-    .then((data) => {
-        console.log(data);
-        day1ForcastText.innerText = data;
+async function apiCallForcast() {
+    const promise = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKEY}`);
+    const dataForecast = await promise.json();
+    console.log(dataForecast);
+    day1ForcastText.innerText = dataForecast;
         // day2ForcastText.innerText = ;
         // day3ForcastText.innerText = ;
         // day4ForcastText.innerText = ;
         // day5ForcastText.innerText = ;
-    })
+    
 }
