@@ -4,6 +4,8 @@ import { APIKEY } from "./environment.js";
 
 let testBtn = document.getElementById('testBtn');
 
+let searchBar = document.getElementById('searchBar');
+
 let dailyForcastWeatherText = document.getElementById('dailyForcastWeatherText');
 let day1ForcastText = document.getElementById('day1ForcastText');
 let day2ForcastText = document.getElementById('day2ForcastText');
@@ -17,6 +19,8 @@ let weatherIconDay2 = document.getElementById('weatherIconDay2');
 let weatherIconDay3 = document.getElementById('weatherIconDay3');
 let weatherIconDay4 = document.getElementById('weatherIconDay4');
 let weatherIconDay5 = document.getElementById('weatherIconDay5');
+
+let city = 'Lodi'
 
 testBtn.addEventListener('click', async function(){
 
@@ -34,7 +38,46 @@ testBtn.addEventListener('click', async function(){
         // day5ForcastText.innerText = ;
 })
 
-let city = 'Lodi,US'
+searchBar.addEventListener('keydown', async function(event){
+    if (event.key === "Enter") {
+
+        let currentData = await apiCallCurrent();
+        console.log(currentData);
+        dailyForcastWeatherText.innerText = currentData.weather[0].description;
+        weatherIconCurrent.src = `https://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`
+
+        let userInput = searchBar.value.toLowerCase();
+        saveStorage(userInput);
+        city = userInput;
+        console.log(userInput);
+        searchBar.value = '';
+    }
+})
+
+function saveStorage(city){
+
+    let cityArr = getFromStorage();
+
+    if(!cityArr.includes(city)){
+        cityArr.push(city);
+    }
+
+    localStorage.setItem('Cities', JSON.stringify(cityArr));
+}
+
+function getFromStorage(){
+    let StorageData = localStorage.getItem('Cities');
+
+    if(StorageData == null){
+        return [];
+    }
+
+    return JSON.parse(StorageData);
+}
+
+
+
+
 
 async function apiCallCurrent() {
     const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}`);
