@@ -7,20 +7,22 @@ let testBtn = document.getElementById('testBtn');
 let searchBar = document.getElementById('searchBar');
 
 let dailyForcastWeatherText = document.getElementById('dailyForcastWeatherText');
+let dailyCityText = document.getElementById('dailyCityText');
+let weatherIconCurrent = document.getElementById('weatherIconCurrent');
+
 let day1ForcastText = document.getElementById('day1ForcastText');
 let day2ForcastText = document.getElementById('day2ForcastText');
 let day3ForcastText = document.getElementById('day3ForcastText');
 let day4ForcastText = document.getElementById('day4ForcastText');
 let day5ForcastText = document.getElementById('day5ForcastText');
 
-let weatherIconCurrent = document.getElementById('weatherIconCurrent');
 let weatherIconDay1 = document.getElementById('weatherIconDay1');
 let weatherIconDay2 = document.getElementById('weatherIconDay2');
 let weatherIconDay3 = document.getElementById('weatherIconDay3');
 let weatherIconDay4 = document.getElementById('weatherIconDay4');
 let weatherIconDay5 = document.getElementById('weatherIconDay5');
 
-let city = 'Lodi'
+let city = 'stockton'
 
 testBtn.addEventListener('click', async function(){
 
@@ -43,6 +45,7 @@ searchBar.addEventListener('keydown', async function(event){
 
         let currentData = await apiCallCurrent();
         console.log(currentData);
+        dailyCityText.innerText = currentData.name;
         dailyForcastWeatherText.innerText = currentData.weather[0].description;
         weatherIconCurrent.src = `https://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`
 
