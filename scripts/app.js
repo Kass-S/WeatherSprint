@@ -22,8 +22,8 @@ testBtn.addEventListener('click', async function(){
 
     let currentData = await apiCallCurrent();
     console.log(currentData);
-    // dailyForcastWeatherText.innerText = data.weather[0].description;
-    // weatherIconCurrent.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+    dailyForcastWeatherText.innerText = currentData.weather[0].description;
+    weatherIconCurrent.src = `https://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`
     
     //let 5forcastData = await apiCall5Forcast();
     //console.log(5forcastData);
