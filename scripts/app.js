@@ -1,4 +1,6 @@
 import { APIKEY } from "./environment.js";
+//pass in city to get lat and long to then pass those in for the other functions
+//do it after you get everything working
 
 let testBtn = document.getElementById('testBtn');
 
@@ -11,12 +13,16 @@ let day5ForcastText = document.getElementById('day5ForcastText');
 
 let weatherIconCurrent = document.getElementById('weatherIconCurrent');
 let weatherIconDay1 = document.getElementById('weatherIconDay1');
+let weatherIconDay2 = document.getElementById('weatherIconDay2');
+let weatherIconDay3 = document.getElementById('weatherIconDay3');
+let weatherIconDay4 = document.getElementById('weatherIconDay4');
+let weatherIconDay5 = document.getElementById('weatherIconDay5');
 
 testBtn.addEventListener('click', function(){
+
+    //apiCallCurrent();
     
-    apiCallCurrent();
-    
-    //apiCallForcast();
+    apiCallForcast();
 })
 
 let city = 'Lodi,US'
