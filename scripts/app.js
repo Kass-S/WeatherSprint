@@ -18,11 +18,20 @@ let weatherIconDay3 = document.getElementById('weatherIconDay3');
 let weatherIconDay4 = document.getElementById('weatherIconDay4');
 let weatherIconDay5 = document.getElementById('weatherIconDay5');
 
-testBtn.addEventListener('click', function(){
+testBtn.addEventListener('click', async function(){
 
-    //apiCallCurrent();
+    let currentData = await apiCallCurrent();
+    console.log(currentData);
+    // dailyForcastWeatherText.innerText = data.weather[0].description;
+    // weatherIconCurrent.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
     
-    apiCallForcast();
+    //let 5forcastData = await apiCall5Forcast();
+    //console.log(5forcastData);
+    //day1ForcastText.innerText = 5forcastData;
+        // day2ForcastText.innerText = ;
+        // day3ForcastText.innerText = ;
+        // day4ForcastText.innerText = ;
+        // day5ForcastText.innerText = ;
 })
 
 let city = 'Lodi,US'
@@ -31,18 +40,12 @@ async function apiCallCurrent() {
     const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}`);
     const data = await promise.json();
     console.log(data);
-    dailyForcastWeatherText.innerText = data.weather[0].description;
-    weatherIconCurrent.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
+    return data;    
 }
 
-async function apiCallForcast() {
+async function apiCall5Forcast() {
     const promise = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKEY}`);
     const data = await promise.json();
     console.log(data);
-    //day1ForcastText.innerText = data;
-        // day2ForcastText.innerText = ;
-        // day3ForcastText.innerText = ;
-        // day4ForcastText.innerText = ;
-        // day5ForcastText.innerText = ;
-    
+    return data;   
 }
