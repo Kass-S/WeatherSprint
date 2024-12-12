@@ -24,21 +24,6 @@ let weatherIconDay5 = document.getElementById('weatherIconDay5');
 
 let city = 'stockton'
 
-testBtn.addEventListener('click', async function(){
-
-    let currentData = await apiCallCurrent();
-    console.log(currentData);
-    dailyForcastWeatherText.innerText = currentData.weather[0].description;
-    weatherIconCurrent.src = `https://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`
-    
-    //let 5forcastData = await apiCall5Forcast();
-    //console.log(5forcastData);
-    //day1ForcastText.innerText = 5forcastData;
-        // day2ForcastText.innerText = ;
-        // day3ForcastText.innerText = ;
-        // day4ForcastText.innerText = ;
-        // day5ForcastText.innerText = ;
-})
 
 searchBar.addEventListener('keydown', async function(event){
     if (event.key === "Enter") {
@@ -48,13 +33,24 @@ searchBar.addEventListener('keydown', async function(event){
         dailyCityText.innerText = currentData.name;
         dailyForcastWeatherText.innerText = currentData.weather[0].description;
         weatherIconCurrent.src = `https://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`
+        //weatherIconCurrent.className = '';
 
         let userInput = searchBar.value.toLowerCase();
         saveStorage(userInput);
         city = userInput;
         console.log(userInput);
         searchBar.value = '';
+
+        //let 5forcastData = await apiCall5Forcast();
+        //console.log(5forcastData);
+        //day1ForcastText.innerText = 5forcastData;
+        // day2ForcastText.innerText = ;
+        // day3ForcastText.innerText = ;
+        // day4ForcastText.innerText = ;
+        // day5ForcastText.innerText = ;
     }
+
+    
 })
 
 function saveStorage(city){

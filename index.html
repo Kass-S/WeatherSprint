@@ -9,20 +9,34 @@
 </head>
 <body>
 
-    <button id="testBtn">Test Btn</button>
-
     <main>
         <daily class="grid-item-1">
             <div class="daily-forcast-card">
                 <p>Today is: Day of Week, Month Day</p>
                 <p id="dailyCityText" class="justify-center">City</p>
-                <img src="" alt="weather icon" id="weatherIconCurrent">
-                <p id="dailyForcastWeatherText">Clear Sky</p>
-                <p>Current</p>
-                <div>
-                    <p>High</p>
-                    <p>Low</p>
+                <div class="daily-card-grid">
+                    <div>
+                        <img src="" alt="weather icon" id="weatherIconCurrent" class="">
+                        <p id="dailyForcastWeatherText" class="justify-center">Clear Sky</p>
+                    </div>
+                    
+                    <div>
+                        <p class="justify-center">Current</p>
+                        <p class="justify-center no-margin">?</p>
+                        <div class="space-evenly some-margin-top">
+                            <div>
+                                <p class="no-margin">High</p>
+                                <p class="justify-center no-margin">?</p>
+                            </div>
+                            <div>
+                                <p class="no-margin">Low</p>
+                                <p class="justify-center no-margin">?</p>
+                            </div>
+                            
+                        </div>
+                    </div>
                 </div>
+                                
             </div>
         </daily>
 

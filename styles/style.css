@@ -44,6 +44,14 @@ main{
     margin-bottom: 2em;
 }
 
+.no-margin{
+    margin: 0;
+}
+
+.some-margin-top{
+    margin: 10px 0;
+}
+
 
 daily{
     background-color: rgba(0, 0, 0, 0.400);
@@ -64,6 +72,17 @@ section{
     margin: 20px;
     font-size: 20px;
 }
+
+.daily-card-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.space-evenly{
+    display: flex;
+    justify-content: space-evenly;
+}
+
 
 .search-city-card{
     font-size: 20px;
