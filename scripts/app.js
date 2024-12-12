@@ -31,11 +31,11 @@ let forcastMaxTempDay3 = document.getElementById('forcastMaxTempDay3');
 let forcastMaxTempDay4 = document.getElementById('forcastMaxTempDay4');
 let forcastMaxTempDay5 = document.getElementById('forcastMaxTempDay5');
 
-let forcastMinTempDay1 = document.getElementById('forcastMaxTempDay1');
-let forcastMinTempDay2 = document.getElementById('forcastMaxTempDay2');
-let forcastMinTempDay3 = document.getElementById('forcastMaxTempDay3');
-let forcastMinTempDay4 = document.getElementById('forcastMaxTempDay4');
-let forcastMinTempDay5 = document.getElementById('forcastMaxTempDay5');
+let forcastMinTempDay1 = document.getElementById('forcastMinTempDay1');
+let forcastMinTempDay2 = document.getElementById('forcastMinTempDay2');
+let forcastMinTempDay3 = document.getElementById('forcastMinTempDay3');
+let forcastMinTempDay4 = document.getElementById('forcastMinTempDay4');
+let forcastMinTempDay5 = document.getElementById('forcastMinTempDay5');
 
 let city = 'stockton'
 
@@ -43,15 +43,15 @@ let city = 'stockton'
 searchBar.addEventListener('keydown', async function(event){
     if (event.key === "Enter") {
 
-        // let currentData = await apiCallCurrent();
-        // console.log(currentData);
-        // dailyCityText.innerText = currentData.name + ', ' + currentData.sys.country;
-        // dailyForcastWeatherText.innerText = currentData.weather[0].description;
-        // weatherIconCurrent.src = `https://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`
-        // weatherIconCurrent.className = 'justify-item';
-        // currentTempDaily.innerText = currentData.main.temp;
-        // currentMaxTempDaily.innerText = currentData.main.temp_max;
-        // currentMinTempDaily.innerText = currentData.main.temp_min
+        let currentData = await apiCallCurrent();
+        console.log(currentData);
+        dailyCityText.innerText = currentData.name + ', ' + currentData.sys.country;
+        dailyForcastWeatherText.innerText = currentData.weather[0].description;
+        weatherIconCurrent.src = `https://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`
+        weatherIconCurrent.className = 'justify-item';
+        currentTempDaily.innerText = currentData.main.temp;
+        currentMaxTempDaily.innerText = currentData.main.temp_max;
+        currentMinTempDaily.innerText = currentData.main.temp_min
 
 
         let userInput = searchBar.value.toLowerCase();
