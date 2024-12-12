@@ -25,21 +25,33 @@ let weatherIconDay3 = document.getElementById('weatherIconDay3');
 let weatherIconDay4 = document.getElementById('weatherIconDay4');
 let weatherIconDay5 = document.getElementById('weatherIconDay5');
 
+let forcastMaxTempDay1 = document.getElementById('forcastMaxTempDay1');
+let forcastMaxTempDay2 = document.getElementById('forcastMaxTempDay2');
+let forcastMaxTempDay3 = document.getElementById('forcastMaxTempDay3');
+let forcastMaxTempDay4 = document.getElementById('forcastMaxTempDay4');
+let forcastMaxTempDay5 = document.getElementById('forcastMaxTempDay5');
+
+let forcastMinTempDay1 = document.getElementById('forcastMaxTempDay1');
+let forcastMinTempDay2 = document.getElementById('forcastMaxTempDay2');
+let forcastMinTempDay3 = document.getElementById('forcastMaxTempDay3');
+let forcastMinTempDay4 = document.getElementById('forcastMaxTempDay4');
+let forcastMinTempDay5 = document.getElementById('forcastMaxTempDay5');
+
 let city = 'stockton'
 
 
 searchBar.addEventListener('keydown', async function(event){
     if (event.key === "Enter") {
 
-        let currentData = await apiCallCurrent();
-        console.log(currentData);
-        dailyCityText.innerText = currentData.name + ', ' + currentData.sys.country;
-        dailyForcastWeatherText.innerText = currentData.weather[0].description;
-        weatherIconCurrent.src = `https://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`
-        weatherIconCurrent.className = 'justify-item';
-        currentTempDaily.innerText = currentData.main.temp;
-        currentMaxTempDaily.innerText = currentData.main.temp_max;
-        currentMinTempDaily.innerText = currentData.main.temp_min
+        // let currentData = await apiCallCurrent();
+        // console.log(currentData);
+        // dailyCityText.innerText = currentData.name + ', ' + currentData.sys.country;
+        // dailyForcastWeatherText.innerText = currentData.weather[0].description;
+        // weatherIconCurrent.src = `https://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`
+        // weatherIconCurrent.className = 'justify-item';
+        // currentTempDaily.innerText = currentData.main.temp;
+        // currentMaxTempDaily.innerText = currentData.main.temp_max;
+        // currentMinTempDaily.innerText = currentData.main.temp_min
 
 
         let userInput = searchBar.value.toLowerCase();
@@ -48,13 +60,39 @@ searchBar.addEventListener('keydown', async function(event){
         console.log(userInput);
         searchBar.value = '';
 
-        //let forcast5Data = await apiCall5Forcast();
-        //console.log(forcast5Data);
-        //day1ForcastText.innerText = forcast5Data;
-        // day2ForcastText.innerText = ;
-        // day3ForcastText.innerText = ;
-        // day4ForcastText.innerText = ;
-        // day5ForcastText.innerText = ;
+        let forcast5Data = await apiCall5Forcast();
+        console.log(forcast5Data);
+
+        day1ForcastText.innerText = forcast5Data.list[4].weather[0].main;
+        weatherIconDay1.src = `https://openweathermap.org/img/wn/${forcast5Data.list[4].weather[0].icon}@2x.png`
+        weatherIconDay1.className = 'justify-item no-margin';
+        forcastMaxTempDay1.innerText = forcast5Data.list[4].main.temp_max;
+        forcastMinTempDay1.innerText = forcast5Data.list[4].main.temp_min;
+        console.log(forcast5Data.list[4].main.temp_min);
+
+        day2ForcastText.innerText = forcast5Data.list[12].weather[0].main;
+        weatherIconDay2.src = `https://openweathermap.org/img/wn/${forcast5Data.list[12].weather[0].icon}@2x.png`
+        weatherIconDay2.className = 'justify-item no-margin';
+        forcastMaxTempDay2.innerText = forcast5Data.list[12].main.temp_max;
+        forcastMinTempDay2.innerText = forcast5Data.list[12].main.temp_min;
+
+        day3ForcastText.innerText = forcast5Data.list[20].weather[0].main;
+        weatherIconDay3.src = `https://openweathermap.org/img/wn/${forcast5Data.list[20].weather[0].icon}@2x.png`
+        weatherIconDay3.className = 'justify-item no-margin';
+        forcastMaxTempDay3.innerText = forcast5Data.list[20].main.temp_max;
+        forcastMinTempDay3.innerText = forcast5Data.list[20].main.temp_min;
+
+        day4ForcastText.innerText = forcast5Data.list[28].weather[0].main;
+        weatherIconDay4.src = `https://openweathermap.org/img/wn/${forcast5Data.list[28].weather[0].icon}@2x.png`
+        weatherIconDay4.className = 'justify-item no-margin';
+        forcastMaxTempDay4.innerText = forcast5Data.list[28].main.temp_max;
+        forcastMinTempDay4.innerText = forcast5Data.list[28].main.temp_min;
+
+        day5ForcastText.innerText = forcast5Data.list[36].weather[0].main;
+        weatherIconDay5.src = `https://openweathermap.org/img/wn/${forcast5Data.list[36].weather[0].icon}@2x.png`
+        weatherIconDay5.className = 'justify-item no-margin';
+        forcastMaxTempDay5.innerText = forcast5Data.list[36].main.temp_max;
+        forcastMinTempDay5.innerText = forcast5Data.list[36].main.temp_min;
     }
 
     

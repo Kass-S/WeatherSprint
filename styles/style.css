@@ -6,7 +6,6 @@
 }
 
 body{
-    background-color: #8248FF;
     background-image: linear-gradient(to bottom left, #87CEEB , #8248FF);
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -45,16 +44,12 @@ main{
     margin-right: auto;
 }
 
-.margin-bottom{
-    margin-bottom: 2em;
-}
-
 .no-margin{
     margin: 0;
 }
 
 .some-margin-top{
-    margin: 10px 0;
+    margin: 10px 0 0 0;
 }
 
 
