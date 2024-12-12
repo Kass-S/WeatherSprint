@@ -83,6 +83,10 @@ section{
     justify-content: space-evenly;
 }
 
+.bigger-text{
+    font-size: 40px;
+}
+
 
 .search-city-card{
     font-size: 20px;
