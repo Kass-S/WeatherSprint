@@ -36,7 +36,7 @@ searchBar.addEventListener('keydown', async function(event){
         dailyCityText.innerText = currentData.name + ', ' + currentData.sys.country;
         dailyForcastWeatherText.innerText = currentData.weather[0].description;
         weatherIconCurrent.src = `https://openweathermap.org/img/wn/${currentData.weather[0].icon}@2x.png`
-        //weatherIconCurrent.className = '';
+        weatherIconCurrent.className = 'justify-item';
         currentTempDaily.innerText = currentData.main.temp;
         currentMaxTempDaily.innerText = currentData.main.temp_max;
         currentMinTempDaily.innerText = currentData.main.temp_min
