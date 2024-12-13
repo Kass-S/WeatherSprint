@@ -124,14 +124,14 @@ function getFromStorage(){
 
 
 async function apiCallCurrent() {
-    const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}`);
+    const promise = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${APIKEY}`);
     const data = await promise.json();
     console.log(data);
     return data;    
 }
 
 async function apiCall5Forcast() {
-    const promise = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIKEY}`);
+    const promise = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${APIKEY}`);
     const data = await promise.json();
     console.log(data);
     return data;   
