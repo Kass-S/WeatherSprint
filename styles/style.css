@@ -92,6 +92,10 @@ section{
     grid-template-columns: repeat(2, 1fr);
 }
 
+.heart-icon:hover{
+    cursor: pointer;
+}
+
 .space-evenly{
     display: flex;
     justify-content: space-evenly;
