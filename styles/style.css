@@ -44,12 +44,26 @@ main{
     margin-right: auto;
 }
 
+.justify-item-week{
+    display: block;
+    margin-left: 40px;
+    margin-right: auto;
+}
+
 .no-margin{
     margin: 0;
 }
 
 .some-margin-top{
     margin: 10px 0 0 0;
+}
+
+.more-margin-top{
+    margin-top: 20px;
+}
+
+.some-margin-bottom{
+    margin-bottom: 20px;
 }
 
 

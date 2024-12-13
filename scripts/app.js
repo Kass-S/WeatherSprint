@@ -65,32 +65,32 @@ searchBar.addEventListener('keydown', async function(event){
 
         day1ForcastText.innerText = forcast5Data.list[4].weather[0].main;
         weatherIconDay1.src = `https://openweathermap.org/img/wn/${forcast5Data.list[4].weather[0].icon}@2x.png`
-        weatherIconDay1.className = 'justify-item no-margin';
+        weatherIconDay1.className = 'justify-item';
         forcastMaxTempDay1.innerText = forcast5Data.list[4].main.temp_max;
         forcastMinTempDay1.innerText = forcast5Data.list[4].main.temp_min;
         console.log(forcast5Data.list[4].main.temp_min);
 
         day2ForcastText.innerText = forcast5Data.list[12].weather[0].main;
         weatherIconDay2.src = `https://openweathermap.org/img/wn/${forcast5Data.list[12].weather[0].icon}@2x.png`
-        weatherIconDay2.className = 'justify-item no-margin';
+        weatherIconDay2.className = 'justify-item';
         forcastMaxTempDay2.innerText = forcast5Data.list[12].main.temp_max;
         forcastMinTempDay2.innerText = forcast5Data.list[12].main.temp_min;
 
         day3ForcastText.innerText = forcast5Data.list[20].weather[0].main;
         weatherIconDay3.src = `https://openweathermap.org/img/wn/${forcast5Data.list[20].weather[0].icon}@2x.png`
-        weatherIconDay3.className = 'justify-item no-margin';
+        weatherIconDay3.className = 'justify-item';
         forcastMaxTempDay3.innerText = forcast5Data.list[20].main.temp_max;
         forcastMinTempDay3.innerText = forcast5Data.list[20].main.temp_min;
 
         day4ForcastText.innerText = forcast5Data.list[28].weather[0].main;
         weatherIconDay4.src = `https://openweathermap.org/img/wn/${forcast5Data.list[28].weather[0].icon}@2x.png`
-        weatherIconDay4.className = 'justify-item no-margin';
+        weatherIconDay4.className = 'justify-item';
         forcastMaxTempDay4.innerText = forcast5Data.list[28].main.temp_max;
         forcastMinTempDay4.innerText = forcast5Data.list[28].main.temp_min;
 
         day5ForcastText.innerText = forcast5Data.list[36].weather[0].main;
         weatherIconDay5.src = `https://openweathermap.org/img/wn/${forcast5Data.list[36].weather[0].icon}@2x.png`
-        weatherIconDay5.className = 'justify-item no-margin';
+        weatherIconDay5.className = 'justify-item';
         forcastMaxTempDay5.innerText = forcast5Data.list[36].main.temp_max;
         forcastMinTempDay5.innerText = forcast5Data.list[36].main.temp_min;
     }
