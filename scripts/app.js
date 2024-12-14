@@ -1,11 +1,10 @@
 import { APIKEY } from "./environment.js";
 import { saveStorage, getFromStorage, saveFav, getFav, removeFromFav} from "./local.js";
 
-let testBtn = document.getElementById("testBtn");
-
 let searchBar = document.getElementById("searchBar");
 let favoritesIcon = document.getElementById("favoritesIcon");
 let favList = document.getElementById('favList');
+let getDay = document.getElementById('getDay');
 
 let dailyForcastWeatherText = document.getElementById("dailyForcastWeatherText");
 
@@ -39,6 +38,8 @@ let forcastMinTempDay3 = document.getElementById("forcastMinTempDay3");
 let forcastMinTempDay4 = document.getElementById("forcastMinTempDay4");
 let forcastMinTempDay5 = document.getElementById("forcastMinTempDay5");
 
+const weekdayArr = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const monthArr = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
 let lat = '';
 let lon = '';
@@ -57,6 +58,7 @@ async function success(position) {
 
 searchBar.addEventListener("keydown", async function (event) {
   if (event.key === "Enter") {
+    
 
     let userInput = searchBar.value.toLowerCase();
     saveStorage(userInput);
@@ -82,6 +84,12 @@ favoritesIcon.addEventListener("click", function () {
 });  
 
 async function searchCity(forcast5Data, currentData) {
+
+    const d = new Date();
+    let day = d.getDate();
+    let month = monthArr[d.getUTCMonth()];
+    getDay.className = 'no-margin some-margin-top'
+    getDay.innerText = 'Today is: '+ month+ ', '+ day;
 
   dailyCityText.innerText = currentData.name + ", " + currentData.sys.country;
   dailyForcastWeatherText.innerText = currentData.weather[0].description;
@@ -168,3 +176,6 @@ async function loadFav() {
         favList.appendChild(p);
     })
 }
+
+
+
