@@ -1,160 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/sun-fav.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/sun-fav.png"
+    />
     <title>Weather</title>
-    <link rel="stylesheet" href="./styles/style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
     <main>
-        <daily class="grid-item-1">
-            <div class="daily-forcast-card">
-                <div class="space-between">
-                    <p id="getDay" class="no-margin some-margin-top">Today is: Day of Week, Month Day</p>
-                    <i id="favoritesIcon" class='fa-regular fa-heart fa-2xl some-margin-top more-margin-top heart-icon'></i>
-                </div>
-                
-                <p id="dailyCityText" class="justify-center bigger-text no-margin some-margin-top">City</p>
-                <div class="daily-card-grid">
-                    <div>
-                        <img src="" alt="weather icon" id="weatherIconCurrent" class="justify-item">
-                        <p id="dailyForcastWeatherText" class="justify-center no-margin some-margin-top">Weather</p>
-                    </div>
-                    
-                    <div>
-                        <p class="justify-center no-margin">Current</p>
-                        <p id="currentTempDaily" class="justify-center no-margin some-margin-top bigger-text">?</p>
-                        <div class="space-evenly some-margin-top">
-                            <div>
-                                <p class="no-margin justify-center">High</p>
-                                <p id="currentMaxTempDaily" class="justify-center no-margin">?</p>
-                            </div>
-                            <div>
-                                <p class="no-margin justify-center">Low</p>
-                                <p id="currentMinTempDaily" class="justify-center no-margin">?</p>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-                                
+      <daily class="grid-item-1">
+        <div class="daily-forcast-card">
+          <div class="space-between">
+            <p id="getDay" class="no-margin some-margin-top">
+              Today is: Day of Week, Month Day
+            </p>
+            <i
+              id="favoritesIcon"
+              class="fa-regular fa-heart fa-2xl some-margin-top more-margin-top heart-icon"
+            ></i>
+          </div>
+
+          <p
+            id="dailyCityText"
+            class="justify-center bigger-text no-margin some-margin-top"
+          >
+            City
+          </p>
+          <div class="daily-card-grid">
+            <div>
+              <img
+                src=""
+                alt="weather icon"
+                id="weatherIconCurrent"
+                class="justify-item"
+              />
+              <p
+                id="dailyForcastWeatherText"
+                class="justify-center no-margin some-margin-top"
+              >
+                Weather
+              </p>
             </div>
-        </daily>
 
-        <search class="grid-item-2">
-            <div class="search-city-card">
-                <div class="search-city-search space-between">
-                    <input id="searchBar" class="search-city-search-bar" type="text" placeholder="Search for a City"/>
-                    <i class="fa-solid fa-magnifying-glass fa-2xl search-city-search-icon" style="color: #000000;"></i>
+            <div>
+              <p class="justify-center no-margin">Current</p>
+              <p
+                id="currentTempDaily"
+                class="justify-center no-margin some-margin-top bigger-text"
+              >
+                ?
+              </p>
+              <div class="space-evenly some-margin-top">
+                <div>
+                  <p class="no-margin justify-center">High</p>
+                  <p id="currentMaxTempDaily" class="justify-center no-margin">
+                    ?
+                  </p>
                 </div>
-                <ul id="favList"></ul>
-                
-            </div>
-        </search>
-
-
-
-        <section>
-            <div class="weekly-forcast-card">
-                <p class="justify-center no-margin some-margin-top">Day 1</p>
-                <img src="" alt="weather icon" id="weatherIconDay1" class="justify-item">
-                <p id="day1ForcastText" class="justify-center no-margin some-margin-top some-margin-bottom">Weather</p>
-                <div class="space-between some-margin-top">
-                    <div>
-                        <p class="no-margin justify-center">High</p>
-                        <p id="forcastMaxTempDay1" class="justify-center no-margin">?</p>
-                    </div>
-                    <div>
-                        <p class="no-margin justify-center">Low</p>
-                        <p id="forcastMinTempDay1" class="justify-center no-margin">?</p>
-                    </div>
-                    
+                <div>
+                  <p class="no-margin justify-center">Low</p>
+                  <p id="currentMinTempDaily" class="justify-center no-margin">
+                    ?
+                  </p>
                 </div>
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </daily>
 
-        <section>
-            <div class="weekly-forcast-card">
-                <p class="justify-center no-margin some-margin-top">Day 2</p>
-                <img src="" alt="weather icon" id="weatherIconDay2" class="justify-item">
-                <p id="day2ForcastText" class="justify-center no-margin some-margin-top some-margin-bottom">Weather</p>
-                <div class="space-between some-margin-top">
-                    <div>
-                        <p class="no-margin justify-center">High</p>
-                        <p id="forcastMaxTempDay2" class="justify-center no-margin">?</p>
-                    </div>
-                    <div>
-                        <p class="no-margin justify-center">Low</p>
-                        <p id="forcastMinTempDay2" class="justify-center no-margin">?</p>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
+      <search class="grid-item-2">
+        <div class="search-city-card">
+          <div class="search-city-search space-between">
+            <input
+              id="searchBar"
+              class="search-city-search-bar"
+              type="text"
+              placeholder="Search for a City"
+            />
+            <i
+              class="fa-solid fa-magnifying-glass fa-2xl search-city-search-icon"
+              style="color: #000000"
+            ></i>
+          </div>
+          <ul id="favList"></ul>
+        </div>
+      </search>
 
-        <section>
-            <div class="weekly-forcast-card">
-                <p class="justify-center no-margin some-margin-top">Day 3</p>
-                <img src="" alt="weather icon" id="weatherIconDay3" class="justify-item">
-                <p id="day3ForcastText" class="justify-center no-margin some-margin-top some-margin-bottom">Weather</p>
-                <div class="space-between some-margin-top">
-                    <div>
-                        <p class="no-margin justify-center">High</p>
-                        <p id="forcastMaxTempDay3" class="justify-center no-margin">?</p>
-                    </div>
-                    <div>
-                        <p class="no-margin justify-center">Low</p>
-                        <p id="forcastMinTempDay3" class="justify-center no-margin">?</p>
-                    </div>
-                    
-                </div>
+      <section>
+        <div class="weekly-forcast-card">
+          <p id="weekDay1" class="justify-center no-margin some-margin-top">Day 1</p>
+          <img
+            src=""
+            alt="weather icon"
+            id="weatherIconDay1"
+            class="justify-item"
+          />
+          <p
+            id="day1ForcastText"
+            class="justify-center no-margin some-margin-top some-margin-bottom"
+          >
+            Weather
+          </p>
+          <div class="space-between some-margin-top">
+            <div>
+              <p class="no-margin justify-center">High</p>
+              <p id="forcastMaxTempDay1" class="justify-center no-margin">?</p>
             </div>
-        </section>
+            <div>
+              <p class="no-margin justify-center">Low</p>
+              <p id="forcastMinTempDay1" class="justify-center no-margin">?</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <section>
-            <div class="weekly-forcast-card">
-                <p class="justify-center no-margin some-margin-top">Day 4</p>
-                <img src="" alt="weather icon" id="weatherIconDay4" class="justify-item">
-                <p id="day4ForcastText" class="justify-center no-margin some-margin-top some-margin-bottom">Weather</p>
-                <div class="space-between some-margin-top">
-                    <div>
-                        <p class="no-margin justify-center">High</p>
-                        <p id="forcastMaxTempDay4" class="justify-center no-margin">?</p>
-                    </div>
-                    <div>
-                        <p class="no-margin justify-center">Low</p>
-                        <p id="forcastMinTempDay4" class="justify-center no-margin">?</p>
-                    </div>
-                    
-                </div>
+      <section>
+        <div class="weekly-forcast-card">
+          <p id="weekDay2" class="justify-center no-margin some-margin-top">Day 2</p>
+          <img
+            src=""
+            alt="weather icon"
+            id="weatherIconDay2"
+            class="justify-item"
+          />
+          <p
+            id="day2ForcastText"
+            class="justify-center no-margin some-margin-top some-margin-bottom"
+          >
+            Weather
+          </p>
+          <div class="space-between some-margin-top">
+            <div>
+              <p class="no-margin justify-center">High</p>
+              <p id="forcastMaxTempDay2" class="justify-center no-margin">?</p>
             </div>
-        </section>
+            <div>
+              <p class="no-margin justify-center">Low</p>
+              <p id="forcastMinTempDay2" class="justify-center no-margin">?</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        <section>
-            <div class="weekly-forcast-card">
-                <p class="justify-center no-margin some-margin-top">Day 5</p>
-                <img src="" alt="weather icon" id="weatherIconDay5" class="justify-item">
-                <p id="day5ForcastText" class="justify-center no-margin some-margin-top some-margin-bottom">Weather</p>
-                <div class="space-between some-margin-top">
-                    <div>
-                        <p class="no-margin justify-center">High</p>
-                        <p id="forcastMaxTempDay5" class="justify-center no-margin">?</p>
-                    </div>
-                    <div>
-                        <p class="no-margin justify-center">Low</p>
-                        <p id="forcastMinTempDay5" class="justify-center no-margin">?</p>
-                    </div>
-                    
-                </div>
+      <section>
+        <div class="weekly-forcast-card">
+          <p id="weekDay3" class="justify-center no-margin some-margin-top">Day 3</p>
+          <img
+            src=""
+            alt="weather icon"
+            id="weatherIconDay3"
+            class="justify-item"
+          />
+          <p
+            id="day3ForcastText"
+            class="justify-center no-margin some-margin-top some-margin-bottom"
+          >
+            Weather
+          </p>
+          <div class="space-between some-margin-top">
+            <div>
+              <p class="no-margin justify-center">High</p>
+              <p id="forcastMaxTempDay3" class="justify-center no-margin">?</p>
             </div>
-        </section>
+            <div>
+              <p class="no-margin justify-center">Low</p>
+              <p id="forcastMinTempDay3" class="justify-center no-margin">?</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="weekly-forcast-card">
+          <p id="weekDay4" class="justify-center no-margin some-margin-top">Day 4</p>
+          <img
+            src=""
+            alt="weather icon"
+            id="weatherIconDay4"
+            class="justify-item"
+          />
+          <p
+            id="day4ForcastText"
+            class="justify-center no-margin some-margin-top some-margin-bottom"
+          >
+            Weather
+          </p>
+          <div class="space-between some-margin-top">
+            <div>
+              <p class="no-margin justify-center">High</p>
+              <p id="forcastMaxTempDay4" class="justify-center no-margin">?</p>
+            </div>
+            <div>
+              <p class="no-margin justify-center">Low</p>
+              <p id="forcastMinTempDay4" class="justify-center no-margin">?</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="weekly-forcast-card">
+          <p id="weekDay5" class="justify-center no-margin some-margin-top">Day 5</p>
+          <img
+            src=""
+            alt="weather icon"
+            id="weatherIconDay5"
+            class="justify-item"
+          />
+          <p
+            id="day5ForcastText"
+            class="justify-center no-margin some-margin-top some-margin-bottom"
+          >
+            Weather
+          </p>
+          <div class="space-between some-margin-top">
+            <div>
+              <p class="no-margin justify-center">High</p>
+              <p id="forcastMaxTempDay5" class="justify-center no-margin">?</p>
+            </div>
+            <div>
+              <p class="no-margin justify-center">Low</p>
+              <p id="forcastMinTempDay5" class="justify-center no-margin">?</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-    
 
-    <script src="https://kit.fontawesome.com/16eb7ba860.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/16eb7ba860.js"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="./scripts/app.js"></script>
-</body>
+  </body>
 </html>

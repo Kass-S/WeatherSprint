@@ -7,7 +7,6 @@ function saveStorage(city) {
 
   localStorage.setItem("Cities", JSON.stringify(cityArr));
 }
-
 function getFromStorage() {
   let StorageData = localStorage.getItem("Cities");
 
@@ -27,7 +26,6 @@ function saveFav(city) {
 
   localStorage.setItem("Favorites", JSON.stringify(favArr));
 }
-
 function getFav() {
   let localStorageData = localStorage.getItem("Favorites");
 
@@ -37,16 +35,14 @@ function getFav() {
 
   return JSON.parse(localStorageData);
 }
+function removeFromFav(fav) {
+  let localStorageData = getFav();
 
-function removeFromFav(fav){
-    let localStorageData = getFav();
+  let nameIndex = localStorageData.indexOf(fav);
 
-    let nameIndex = localStorageData.indexOf(fav);
+  localStorageData.splice(nameIndex, 1);
 
-    localStorageData.splice(nameIndex, 1);
-
-    localStorage.setItem('Favorites', JSON.stringify(localStorageData));
-
+  localStorage.setItem("Favorites", JSON.stringify(localStorageData));
 }
 
-export { saveStorage, getFromStorage, saveFav, getFav, removeFromFav};
+export { saveStorage, getFromStorage, saveFav, getFav, removeFromFav };
