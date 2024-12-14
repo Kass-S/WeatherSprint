@@ -1,13 +1,14 @@
 import { APIKEY } from "./environment.js";
+import { saveStorage, getFromStorage, saveFav, getFav, removeFromFav} from "./local.js";
 
 let testBtn = document.getElementById("testBtn");
 
 let searchBar = document.getElementById("searchBar");
 let favoritesIcon = document.getElementById("favoritesIcon");
+let favList = document.getElementById('favList');
 
-let dailyForcastWeatherText = document.getElementById(
-  "dailyForcastWeatherText"
-);
+let dailyForcastWeatherText = document.getElementById("dailyForcastWeatherText");
+
 let dailyCityText = document.getElementById("dailyCityText");
 let weatherIconCurrent = document.getElementById("weatherIconCurrent");
 let currentTempDaily = document.getElementById("currentTempDaily");
@@ -38,8 +39,6 @@ let forcastMinTempDay3 = document.getElementById("forcastMinTempDay3");
 let forcastMinTempDay4 = document.getElementById("forcastMinTempDay4");
 let forcastMinTempDay5 = document.getElementById("forcastMinTempDay5");
 
-let solidHeart = false;
-
 
 let lat = '';
 let lon = '';
@@ -59,8 +58,6 @@ async function success(position) {
 searchBar.addEventListener("keydown", async function (event) {
   if (event.key === "Enter") {
 
-    
-
     let userInput = searchBar.value.toLowerCase();
     saveStorage(userInput);
     city = userInput;
@@ -73,10 +70,16 @@ searchBar.addEventListener("keydown", async function (event) {
     let currentData = await apiCallCurrent(geoData[0].lat, geoData[0].lon);
 
     let forcast5Data = await apiCall5Forcast(geoData[0].lat, geoData[0].lon);
-    
+
     searchCity(forcast5Data, currentData);
   }
 });
+
+favoritesIcon.addEventListener("click", function () {
+    let favInput = searchBar.value;
+    saveFav(favInput);
+    loadFav()
+});  
 
 async function searchCity(forcast5Data, currentData) {
 
@@ -119,50 +122,6 @@ async function searchCity(forcast5Data, currentData) {
   forcastMinTempDay5.innerText = forcast5Data.list[36].main.temp_min;
 }
 
-function saveStorage(city) {
-  let cityArr = getFromStorage();
-
-  if (!cityArr.includes(city)) {
-    cityArr.push(city);
-  }
-
-  localStorage.setItem("Cities", JSON.stringify(cityArr));
-}
-
-function getFromStorage() {
-  let StorageData = localStorage.getItem("Cities");
-
-  if (StorageData == null) {
-    return [];
-  }
-
-  return JSON.parse(StorageData);
-}
-
-favoritesIcon.addEventListener("click", function () {
-  if (solidHeart == false) {
-    let favInput = searchBar.value.toLowerCase();
-    saveFav(favInput);
-    favoritesIcon.className =
-      "fa-solid fa-heart fa-2xl some-margin-top more-margin-top heart-icon";
-    solidHeart = true;
-  } else {
-    favoritesIcon.className =
-      "fa-regular fa-heart fa-2xl some-margin-top more-margin-top heart-icon";
-    solidHeart = false;
-  }
-});
-
-function saveFav(fav) {
-  //let favArr = getFromStorage();
-
-  if (!favArr.includes(fav)) {
-    favArr.push(fav);
-  }
-
-  localStorage.setItem("Favorites", JSON.stringify(favArr));
-}
-
 async function apiCallGro(city) {
   const promise = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${APIKEY}`);
   const data = await promise.json();
@@ -186,4 +145,26 @@ async function apiCall5Forcast(lat, lon) {
   const data = await promise.json();
   //console.log(data);
   return data;
+}
+
+loadFav()
+async function loadFav() {
+    let localStorage =  getFav();
+    favList.innerText = "";
+    localStorage.map(favorites => {
+        let p = document.createElement('p');
+        let removeButton = document.createElement('i');
+        removeButton.className = "fa-solid fa-heart fa-xl some-margin-top more-margin-top heart-icon"; 
+        removeButton.addEventListener('click', () => {
+            removeFromFav(favorites);
+            p.remove();
+    })
+    
+        p.innerText = favorites;
+        p.addEventListener('click', function() {
+            loadFav(favorites);
+        })
+        p.appendChild(removeButton);
+        favList.appendChild(p);
+    })
 }
